@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { Check, Code2, Compass } from "lucide-react";
 import type { LearningTrack } from "@/types";
+
+interface LearningTrackSwitcherProps {
+  track: LearningTrack;
+  onChange: (track: LearningTrack) => void;
+}
 
 const tracks: {
   id: LearningTrack;
@@ -24,9 +28,10 @@ const tracks: {
   },
 ];
 
-export function LearningTrackSwitcher() {
-  const [track, setTrack] = useState<LearningTrack>("casual");
-
+export function LearningTrackSwitcher({
+  track,
+  onChange,
+}: LearningTrackSwitcherProps) {
   return (
     <fieldset className="min-w-0">
       <legend
@@ -55,7 +60,7 @@ export function LearningTrackSwitcher() {
                 name="learning-track"
                 value={id}
                 checked={selected}
-                onChange={() => setTrack(id)}
+                onChange={() => onChange(id)}
               />
               <span
                 aria-hidden="true"
