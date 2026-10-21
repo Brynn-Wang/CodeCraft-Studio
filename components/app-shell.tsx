@@ -6,9 +6,9 @@ import {
   Check,
   GraduationCap,
   Layers3,
-  ShieldCheck,
 } from "lucide-react";
 import Link from "next/link";
+import { InstructorPortal } from "@/components/instructor-portal";
 
 type Portal = "learner" | "instructor";
 
@@ -79,23 +79,7 @@ export function AppShell({ children }: AppShellProps) {
       <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
         {portal === "learner" ? (
           children
-        ) : (
-          <section className="mx-auto max-w-3xl rounded-xl border border-border bg-surface p-6 sm:p-8">
-            <div className="mb-5 flex size-12 items-center justify-center rounded-lg border border-border bg-surface-raised text-amber-400">
-              <ShieldCheck size={22} aria-hidden="true" />
-            </div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-400">
-              Instructor portal
-            </p>
-            <h1 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
-              Course Studio workspace
-            </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-muted sm:text-base">
-              The instructor portal is selected. Course authoring and class
-              analytics will be added in a later implementation phase.
-            </p>
-          </section>
-        )}
+        ) : <InstructorPortal />}
       </main>
     </div>
   );

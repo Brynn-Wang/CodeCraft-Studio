@@ -1,5 +1,5 @@
 import type { ArenaAnswer, ArenaEvaluation, ArenaLevel } from "./arena";
-import type { CourseConfiguration, CourseId } from "./course";
+import type { CourseConfiguration, CourseId, LearningTrack } from "./course";
 import type { LearningPath, LearnerProgress } from "./learning";
 
 export interface LearningPathService {
@@ -18,7 +18,10 @@ export interface CourseStudioService {
   saveCourseConfiguration(
     configuration: CourseConfiguration,
   ): Promise<CourseConfiguration>;
-  generateCourseDraft(topic: string): Promise<CourseConfiguration>;
+  generateCourseDraft(
+    topic: string,
+    options?: { track: LearningTrack; keyConcepts: string[] },
+  ): Promise<CourseConfiguration>;
   getCourseConfiguration(courseId: CourseId): Promise<CourseConfiguration>;
 }
 

@@ -44,4 +44,6 @@ export interface CourseConfiguration {
   rules: string[];
   verificationCriteria: AcceptanceCriterion[];
   status: "draft" | "preview";
+  track?: LearningTrack;
+  units?: CourseUnit[];
 }
